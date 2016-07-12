@@ -1,11 +1,18 @@
-package ua.pp.blastorq.input;
+package ua.pp.blastorq.ui;
 
 import com.badlogic.gdx.InputProcessor;
 
+import ua.pp.blastorq.objects.Jelly;
+
 /**
- * Created by serhij on 11.07.2016.
+ * Created by serhij on 12.07.2016.
  */
-public class MyInput implements InputProcessor {
+public class InputHandler implements InputProcessor {
+   Jelly fly;
+
+    public InputHandler(Jelly myfly) {
+       fly = myfly;
+    }
 
     @Override
     public boolean keyDown(int keycode) {
@@ -24,6 +31,7 @@ public class MyInput implements InputProcessor {
 
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
+        fly.onClick();
         return false;
     }
 

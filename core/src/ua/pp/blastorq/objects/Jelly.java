@@ -26,6 +26,9 @@ public class Jelly  {
         }
         position.add(velosity.cpy().scl(delta));
     }
+    public void stop(){
+        velosity.y = 0;
+    }
     public int getWidth() {
         return width;
     }

@@ -7,7 +7,6 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.Rectangle;
-import com.sun.javafx.font.directwrite.RECT;
 
 import ua.pp.blastorq.objects.Grass;
 import ua.pp.blastorq.objects.Jelly;

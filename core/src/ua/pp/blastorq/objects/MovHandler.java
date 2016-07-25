@@ -14,7 +14,6 @@ public class MovHandler {
     public static final int MOV_SPEED = -59;
     public static final int WEB_GAP = 60;
     private GameWorld gameWorld;
-    Rectangle web1r , web2r ,web3r;
     public MovHandler(GameWorld gameWorld ,float yPos) {
         this.gameWorld = gameWorld;
         frontGrass = new Grass(0 ,yPos + 60,143 ,11 , MOV_SPEED);
@@ -23,7 +22,9 @@ public class MovHandler {
         web1 = new Web(0 ,0 + 60 ,22, 60, MOV_SPEED ,yPos);
         web2 = new Web(web1.getTailX() + WEB_GAP ,0 + 60 ,22, 70, MOV_SPEED ,yPos);
         web3 = new Web(web2.getTailX() + WEB_GAP ,0 + 60 ,22, 60, MOV_SPEED ,yPos);
+
     }
+
 
     public Grass getFrontGrass() {
         return frontGrass;
@@ -45,12 +46,14 @@ public class MovHandler {
     }
 
 
+
     public void update(float delta){
         frontGrass.update(delta);
         backGrass.update(delta);
         web1.update(delta);
         web2.update(delta);
         web3.update(delta);
+
         if(web1.isScrolledLeft()){
             web1.reset(web3.getTailX() + WEB_GAP);
         }else if(web2.isScrolledLeft()){

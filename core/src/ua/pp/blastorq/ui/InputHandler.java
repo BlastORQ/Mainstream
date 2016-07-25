@@ -9,6 +9,7 @@ import ua.pp.blastorq.objects.Jelly;
  */
 public class InputHandler implements InputProcessor {
    Jelly fly;
+    public static boolean isonclick = false;
 
     public InputHandler(Jelly myfly) {
        fly = myfly;
@@ -31,7 +32,9 @@ public class InputHandler implements InputProcessor {
 
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-        fly.onClick();
+        if(!isonclick) {
+            fly.onClick();
+        }
         return false;
     }
 

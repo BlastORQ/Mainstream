@@ -23,6 +23,8 @@ public class Moving {
             isMovingLeft = true;
         }
 
+
+
     }
     public void reset(float newX){
         position.x = newX;

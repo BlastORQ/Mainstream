@@ -34,7 +34,7 @@ public class GameRender {
         camera.setToOrtho(true ,gameWidth ,136);
         batch = new SpriteBatch();
         batch.setProjectionMatrix(camera.combined);
-        actor = new Sprite(new Texture("badlogic.jpg"));
+        actor = new Sprite(new Texture("actor.png"));
         actor.flip(false ,true);
         initAssets();
         background = new Sprite(new Texture("logo.png"));

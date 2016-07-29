@@ -1,18 +1,18 @@
-package ua.pp.blastorq.ui;
+package ua.pp.blastorq.mainstream.ui;
 
 import com.badlogic.gdx.InputProcessor;
 
-import ua.pp.blastorq.objects.Jelly;
+import ua.pp.blastorq.mainstream.game.GameWorld;
+import ua.pp.blastorq.mainstream.objects.Fly;
 
 /**
- * Created by serhij on 12.07.2016.
+ * Created by serhij on 25.07.2016.
  */
-public class InputHandler implements InputProcessor {
-   Jelly fly;
-    public static boolean isonclick = false;
-
-    public InputHandler(Jelly myfly) {
-       fly = myfly;
+public class InputHandler implements InputProcessor
+{
+    Fly fly;
+    public InputHandler(GameWorld world) {
+        fly = world.getFly();
     }
 
     @Override
@@ -32,9 +32,7 @@ public class InputHandler implements InputProcessor {
 
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-        if(!isonclick) {
-            fly.onClick();
-        }
+        fly.onClick();
         return false;
     }
 

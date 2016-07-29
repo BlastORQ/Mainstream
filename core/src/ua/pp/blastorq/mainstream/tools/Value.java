@@ -1,8 +1,9 @@
-package ua.pp.blastorq.tools;
+package ua.pp.blastorq.mainstream.tools;
 
-
+/**
+ * Created by serhij on 25.07.2016.
+ */
 public class Value {
-
     private float val = 1;
 
     public float getVal() {

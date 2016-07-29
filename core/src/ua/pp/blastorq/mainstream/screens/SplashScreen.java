@@ -1,19 +1,17 @@
-package ua.pp.blastorq.screen;
+package ua.pp.blastorq.mainstream.screens;
 
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
-
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+
+import ua.pp.blastorq.mainstream.Mainstream;
+import ua.pp.blastorq.mainstream.tools.SpriteAccessor;
 
 
-import ua.pp.blastorq.Mainstream;
-
-import ua.pp.blastorq.tools.SpriteAccessor;
 
 import aurelienribon.tweenengine.BaseTween;
 import aurelienribon.tweenengine.Tween;
@@ -25,26 +23,33 @@ public class SplashScreen implements Screen{
 
     private TweenManager manager;
     private SpriteBatch batch;
-    private Sprite sprite;
-    TextureAtlas atlas;
+    private Sprite sprite ,logo;
+    Texture f;
     private Mainstream game;
+    private Screen nextScreen;
 
-    public SplashScreen(Mainstream game) {
+    public SplashScreen(Mainstream game, Screen nextScreen) {
         this.game = game;
+        this.nextScreen = nextScreen;
     }
 
     @Override
     public void show() {
-        sprite = new Sprite(new Texture("logo.png"));
-        sprite.setColor(1, 1, 1, 0);
+        f = new Texture("logo.png");
+        logo = new Sprite(f);
+
+        sprite = new Sprite(logo);
+        sprite.setColor(1, 1, 0, 0);
+
 
         float width = Gdx.graphics.getWidth();
         float height = Gdx.graphics.getHeight();
         float desiredWidth = width * 0.7f;
-        float scale = desiredWidth / sprite.getWidth();
+        float scale = sprite.getWidth();
 
-        sprite.setSize(Gdx.graphics.getWidth() , Gdx.graphics.getHeight());
-        sprite.setPosition(0 ,0);
+        sprite.setSize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        sprite.setPosition(0 , 0);
+
         setupTween();
         batch = new SpriteBatch();
 
@@ -58,24 +63,23 @@ public class SplashScreen implements Screen{
         TweenCallback callback = new TweenCallback() {
             @Override
             public void onEvent(int type, BaseTween<?> source) {
-            game.setScreen(new GameScreen());
+                game.setScreen(nextScreen);
             }
         };
 
         Tween.to(sprite, SpriteAccessor.ALPHA, 0.8f).target(1)
-                .ease(TweenEquations.easeInOutQuad).repeatYoyo(1, 0.4f)
+                .ease(TweenEquations.easeInOutQuad).repeatYoyo(1, 1.4f)
                 .setCallback(callback).setCallbackTriggers(TweenCallback.COMPLETE)
                 .start(manager);
     }
 
     @Override
     public void render(float delta) {
-       manager.update(delta);
-        Gdx.gl.glClearColor(1, 1, 1, 1);
+        manager.update(delta);
+        Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         batch.begin();
         sprite.draw(batch);
-
         batch.end();
 
     }

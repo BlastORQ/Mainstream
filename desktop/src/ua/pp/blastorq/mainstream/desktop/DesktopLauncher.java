@@ -1,15 +1,14 @@
-package ua.pp.blastorq.desktop;
+package ua.pp.blastorq.mainstream.desktop;
 
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
-import ua.pp.blastorq.Mainstream;
+import ua.pp.blastorq.mainstream.Mainstream;
 
 public class DesktopLauncher {
 	public static void main (String[] arg) {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
-		config.title = "Mainstream";
-		config.width = 320;
-		config.height = 630;
+		config.width = 800;
+		config.height = 480;
 		new LwjglApplication(new Mainstream(), config);
 	}
 }

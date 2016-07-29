@@ -16,8 +16,8 @@ public class MovHandler {
 
     public MovHandler(GameWorld world ,float yPos) {
         this.world = world;
-        frontGrass = new Grass(0 ,yPos , 143 , 11 ,MOV_SPEED);
-        backGrass = new Grass(frontGrass.getTailX() ,yPos ,143 ,11 ,MOV_SPEED);
+        frontGrass = new Grass(0, yPos-28, 462 , 30 ,MOV_SPEED);
+        backGrass = new Grass(462+frontGrass.getX(), yPos-28, 462, 30, MOV_SPEED);
 
         web1 = new Web(105,0 ,22, 60 ,MOV_SPEED ,yPos);
         web2 = new Web(web1.getTailX() + WEB_GAP, 0, 22, 70, MOV_SPEED, yPos);

@@ -37,7 +37,7 @@ public class GameRender {
         actor = new Sprite(new Texture("actor.png"));
         actor.flip(false ,true);
         initAssets();
-        background = new Sprite(new Texture("logo.png"));
+        background = new Sprite(new Texture("background.png"));
 
 
     }

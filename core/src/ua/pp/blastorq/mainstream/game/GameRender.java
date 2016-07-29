@@ -38,6 +38,7 @@ public class GameRender {
         actor.flip(false ,true);
         initAssets();
         background = new Sprite(new Texture("background.png"));
+        background.flip(false ,true);
 
 
     }
@@ -60,7 +61,6 @@ public class GameRender {
         webup.flip(false ,true);
         webdown.flip(false , true);
         grass.flip(false ,true);
-
     }
     public void render(float delta){
         batch.begin();

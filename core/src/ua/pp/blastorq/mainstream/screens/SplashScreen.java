@@ -48,7 +48,7 @@ public class SplashScreen implements Screen{
         float scale = sprite.getWidth();
 
         sprite.setSize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        sprite.setPosition(0 , 0);
+        sprite.setPosition(0, 0);
 
         setupTween();
         batch = new SpriteBatch();

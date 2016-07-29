@@ -28,9 +28,9 @@ public class GameRender {
 
     public GameRender(GameWorld world ,float gameWidth){
         mWorld = world;
-       initGameObjects();
+        initGameObjects();
         this.gameWidth = gameWidth;
-         camera = new OrthographicCamera();
+        camera = new OrthographicCamera();
         camera.setToOrtho(true ,gameWidth ,136);
         batch = new SpriteBatch();
         batch.setProjectionMatrix(camera.combined);
@@ -39,8 +39,6 @@ public class GameRender {
         initAssets();
         background = new Sprite(new Texture("background.png"));
         background.flip(false ,true);
-
-
     }
     public void initGameObjects(){
         fly = mWorld.getFly();
@@ -67,9 +65,9 @@ public class GameRender {
         batch.disableBlending();
         batch.draw(background ,0 ,0 ,gameWidth ,136);
         batch.enableBlending();
-        drawFly();
         drawWeb();
         drawGrass();
+        drawFly();
         batch.end();
     }
     public void drawFly(){

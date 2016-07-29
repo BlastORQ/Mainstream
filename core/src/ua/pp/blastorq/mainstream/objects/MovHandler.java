@@ -20,11 +20,11 @@ public class MovHandler {
         backGrass = new Grass(frontGrass.getTailX() ,yPos ,143 ,11 ,MOV_SPEED);
 
         web1 = new Web(105,0 ,22, 60 ,MOV_SPEED ,yPos);
-        web2 = new Web(web1.getTailX() + WEB_GAP ,0 , 22, 70,MOV_SPEED, yPos);
-        web3 = new Web(web2.getTailX() + WEB_GAP ,0 ,22, 60 ,MOV_SPEED ,yPos);
-        web4 = new Web(web3.getTailX() + WEB_GAP ,0 , 22 , 70 ,MOV_SPEED ,yPos);
-        web5 = new Web(web4.getTailX() + WEB_GAP ,0 ,22, 60 ,MOV_SPEED ,yPos);
-        web6 = new Web(web5.getTailX() + WEB_GAP , 0 ,22, 70 ,MOV_SPEED ,yPos);
+        web2 = new Web(web1.getTailX() + WEB_GAP, 0, 22, 70, MOV_SPEED, yPos);
+        web3 = new Web(web2.getTailX() + WEB_GAP, 0, 22, 60, MOV_SPEED, yPos);
+        web4 = new Web(web3.getTailX() + WEB_GAP, 0, 22, 70, MOV_SPEED, yPos);
+        web5 = new Web(web4.getTailX() + WEB_GAP, 0, 22, 60, MOV_SPEED, yPos);
+        web6 = new Web(web5.getTailX() + WEB_GAP, 0, 22, 70, MOV_SPEED, yPos);
     }
     public void update(float delta){
         frontGrass.update(delta);
@@ -36,12 +36,13 @@ public class MovHandler {
         web4.update(delta);
         web5.update(delta);
         web6.update(delta);
+
         if(web1.isScrolledLeft()){
             web1.reset(web6.getTailX() + WEB_GAP);
         }else if(web2.isScrolledLeft()){
             web2.reset(web1.getTailX() + WEB_GAP);
         }else if(web3.isScrolledLeft()) {
-        web3.reset(web2.getTailX() + WEB_GAP);
+            web3.reset(web2.getTailX() + WEB_GAP);
         }else if(web4.isScrolledLeft()){
             web4.reset(web3.getTailX() + WEB_GAP);
         }else if(web5.isScrolledLeft()){
@@ -97,6 +98,7 @@ public class MovHandler {
     public Web getWeb6() {
         return web6;
     }
+
     public boolean collides(Fly fly){
         return web1.collides(fly) || web2.collides(fly) || web3.collides(fly) || web4.collides(fly) || web5.collides(fly) || web6.collides(fly) ;
     }

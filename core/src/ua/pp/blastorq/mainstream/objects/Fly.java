@@ -44,8 +44,8 @@ public class Fly {
         if(velosity.y >50){
             velosity.y = 50;
         }
-        if(position.y > gameHeight-20){
-            position.y = gameHeight-20;
+        if(position.y > gameHeight-24){
+            position.y = gameHeight-24;
         }
         if(position.y < 0){
             position.y = 0;

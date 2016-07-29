@@ -1,5 +1,6 @@
 package ua.pp.blastorq.mainstream.objects;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
@@ -13,6 +14,9 @@ public class Fly {
     float  width ,height;
     Rectangle rectangle;
     public boolean isAlive;
+    float screenWidth = Gdx.graphics.getWidth();
+    float screenHeight = Gdx.graphics.getHeight();
+    float gameHeight = 136;
     public Fly(float x, float y, float width, float height) {
 
         this.width = width;
@@ -29,16 +33,22 @@ public class Fly {
     }
     public void onClick(){
         if(isAlive) {
-            velosity.y = -90;
+            velosity.y = -55;
         }
-        }
+    }
     public void clie(){
         acceleration.y = 0;
     }
     public void update(float delta){
-        velosity.add(acceleration.cpy().scl(delta));
-        if(velosity.y >200){
-            velosity.y = 200;
+        velosity.add(acceleration.cpy().scl(delta/2));
+        if(velosity.y >50){
+            velosity.y = 50;
+        }
+        if(position.y > gameHeight-20){
+            position.y = gameHeight-20;
+        }
+        if(position.y < 0){
+            position.y = 0;
         }
         position.add(velosity.cpy().scl(delta));
         rectangle.set(position.x ,position.y ,width ,height);

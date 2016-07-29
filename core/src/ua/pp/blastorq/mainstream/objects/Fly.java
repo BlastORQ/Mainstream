@@ -19,7 +19,7 @@ public class Fly {
         this.height = height;
         position = new Vector2(x ,y);
         velosity = new Vector2(0 ,0);
-        acceleration = new Vector2(0 ,460);
+        acceleration = new Vector2(0 ,230);
         rectangle = new Rectangle();
         isAlive = true;
     }
@@ -29,7 +29,7 @@ public class Fly {
     }
     public void onClick(){
         if(isAlive) {
-            velosity.y = -140;
+            velosity.y = -90;
         }
         }
     public void clie(){

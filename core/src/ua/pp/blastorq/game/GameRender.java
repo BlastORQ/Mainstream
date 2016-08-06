@@ -6,6 +6,16 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+<<<<<<< HEAD
+=======
+import com.badlogic.gdx.math.Rectangle;
+import com.sun.javafx.font.directwrite.RECT;
+
+import ua.pp.blastorq.objects.Grass;
+import ua.pp.blastorq.objects.Jelly;
+import ua.pp.blastorq.objects.MovHandler;
+import ua.pp.blastorq.objects.Web;
+>>>>>>> parent of 8a9b524... Пофіксив все пахає (Давид перевір чи пахає перед тим як партачити)
 
 /**
  * Created by serhij on 12.07.2016.

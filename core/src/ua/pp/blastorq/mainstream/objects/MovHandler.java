@@ -10,9 +10,14 @@ public class MovHandler {
     public Web web1 ,web2  ,web3  ,web4 ,web5 ,web6;
     Grass frontGrass ,backGrass;
     GameWorld world;
+<<<<<<< HEAD
     Background frontbackground ,backbackground;
     public static final int MOV_SPEED = -20;
     public static final int WEB_GAP  = 60;
+=======
+    public static final int MOV_SPEED = -59;
+    public static final int WEB_GAP  = 30;
+>>>>>>> parent of 1ab4bde... шось зролбив
 
 
     public MovHandler(GameWorld world ,float yPos) {

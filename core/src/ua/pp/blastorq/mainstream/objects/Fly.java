@@ -23,7 +23,7 @@ public class Fly {
         this.height = height;
         position = new Vector2(x ,y);
         velosity = new Vector2(0 ,0);
-        acceleration = new Vector2(0 ,230);
+        acceleration = new Vector2(0 ,460);
         rectangle = new Rectangle();
         isAlive = true;
     }
@@ -33,7 +33,12 @@ public class Fly {
     }
     public void onClick(){
         if(isAlive) {
+<<<<<<< HEAD
             velosity.y = -55;
+=======
+            velosity.y = -140;
+        }
+>>>>>>> parent of 1ab4bde... шось зролбив
         }
     }
     public void clie(){

@@ -10,6 +10,7 @@ public class MovHandler {
     public Web web1 ,web2  ,web3  ,web4 ,web5 ,web6;
     Grass frontGrass ,backGrass;
     GameWorld world;
+    Background frontbackground ,backbackground;
     public static final int MOV_SPEED = -20;
     public static final int WEB_GAP  = 60;
 
@@ -25,7 +26,19 @@ public class MovHandler {
         web4 = new Web(web3.getTailX() + WEB_GAP, 0, 22, 70, MOV_SPEED, yPos);
         web5 = new Web(web4.getTailX() + WEB_GAP, 0, 22, 60, MOV_SPEED, yPos);
         web6 = new Web(web5.getTailX() + WEB_GAP, 0, 22, 70, MOV_SPEED, yPos);
+
+        frontbackground = new Background(0 ,0  ,1280 ,720 ,MOV_SPEED);
+        backbackground = new Background(frontbackground.getTailX() ,0, 1280 ,720 ,MOV_SPEED);
     }
+
+    public Background getFrontbackground() {
+        return frontbackground;
+    }
+
+    public Background getBackbackground() {
+        return backbackground;
+    }
+
     public void update(float delta){
         frontGrass.update(delta);
         backGrass.update(delta);
@@ -36,6 +49,9 @@ public class MovHandler {
         web4.update(delta);
         web5.update(delta);
         web6.update(delta);
+
+        frontbackground.update(delta);
+        backbackground.update(delta);
 
         if(web1.isScrolledLeft()){
             web1.reset(web6.getTailX() + WEB_GAP);
@@ -55,6 +71,12 @@ public class MovHandler {
         }else if(backGrass.isScrolledLeft()){
             backGrass.reset(frontGrass.getTailX());
         }
+        if(frontbackground.isScrolledLeft()){
+            frontbackground.reset(backbackground.getTailX());
+        }else if(backbackground.isScrolledLeft()){
+            backbackground.reset(frontbackground.getTailX());
+        }
+
         }
     public void stop(){
         web1.stop();

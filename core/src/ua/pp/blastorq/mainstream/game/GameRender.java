@@ -6,7 +6,6 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-import ua.pp.blastorq.mainstream.objects.Background;
 import ua.pp.blastorq.mainstream.objects.Fly;
 import ua.pp.blastorq.mainstream.objects.Grass;
 import ua.pp.blastorq.mainstream.objects.MovHandler;
@@ -26,16 +25,15 @@ public class GameRender {
     Grass frontGrass ,backGrass;
     Web web1 ,web2 ,web3 ,web4 ,web5 ,web6;
     Sprite webup ,webdown, grass;
-    Background sback ,sfront;
 
     public GameRender(GameWorld world ,float gameWidth){
         mWorld = world;
         initGameObjects();
         this.gameWidth = gameWidth;
         camera = new OrthographicCamera();
-        camera.setToOrtho(true ,800  ,480);
+        camera.setToOrtho(true ,gameWidth ,136);
         batch = new SpriteBatch();
-       // batch.setProjectionMatrix(camera.combined);
+        batch.setProjectionMatrix(camera.combined);
         actor = new Sprite(new Texture("actor.png"));
         actor.flip(false ,true);
         initAssets();
@@ -53,24 +51,19 @@ public class GameRender {
         web4 = movHandler.getWeb4();
         web5 = movHandler.getWeb5();
         web6 = movHandler.getWeb6();
-
-        sback = movHandler.getBackbackground();
-        sfront = movHandler.getFrontbackground();
-
     }
     public void initAssets(){
         webup = new Sprite(new Texture("webup.png"));
         webdown = new Sprite(new Texture("webdown.png"));
         grass = new Sprite(new Texture("grass.png"));
-       //webup.flip(false ,true);
-       // webdown.flip(false , true);
-       // grass.flip(false ,true);
+        webup.flip(false ,true);
+        webdown.flip(false , true);
+        grass.flip(false ,true);
     }
     public void render(float delta){
         batch.begin();
         batch.disableBlending();
-        batch.draw(background ,sfront.getX() ,sfront.getY() ,sfront.getWidth(),sfront.getHeight());
-       batch.draw(background ,sback.getX() ,sback.getY() ,sback.getWidth() ,sback.getHeight());
+        batch.draw(background ,0 ,0 ,gameWidth ,136);
         batch.enableBlending();
         drawWeb();
         drawGrass();

@@ -1,6 +1,8 @@
 package ua.pp.blastorq.mainstream.objects;
 
 
+import com.badlogic.gdx.physics.box2d.Body;
+
 import ua.pp.blastorq.mainstream.game.GameWorld;
 
 /**
@@ -14,11 +16,10 @@ public class MovHandler {
     public static final int WEB_GAP  = 60;
 
 
-    public MovHandler(GameWorld world ,float yPos) {
+    public MovHandler(GameWorld world , float yPos, Body grassBody) {
         this.world = world;
-        frontGrass = new Grass(0, yPos-28, 462 , 30 ,MOV_SPEED);
-        backGrass = new Grass(462+frontGrass.getX(), yPos-28, 462, 30, MOV_SPEED);
-
+        frontGrass = new Grass(0, yPos-28, 462 , 30 ,MOV_SPEED, grassBody.getPosition());
+        backGrass = new Grass(462+frontGrass.getX(), yPos-28, 462, 30, MOV_SPEED, grassBody.getPosition());
         web1 = new Web(105,0 ,22, 60 ,MOV_SPEED ,yPos);
         web2 = new Web(web1.getTailX() + WEB_GAP, 0, 22, 70, MOV_SPEED, yPos);
         web3 = new Web(web2.getTailX() + WEB_GAP, 0, 22, 60, MOV_SPEED, yPos);

@@ -5,11 +5,17 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.Body;
+import com.badlogic.gdx.physics.box2d.BodyDef;
+import com.badlogic.gdx.physics.box2d.FixtureDef;
+import com.badlogic.gdx.physics.box2d.World;
 
 import ua.pp.blastorq.mainstream.objects.Fly;
 import ua.pp.blastorq.mainstream.objects.Grass;
 import ua.pp.blastorq.mainstream.objects.MovHandler;
 import ua.pp.blastorq.mainstream.objects.Web;
+import ua.pp.blastorq.mainstream.utils.BodyEditorLoader;
 
 /**
  * Created by serhij on 25.07.2016.
@@ -53,8 +59,8 @@ public class GameRender {
         web6 = movHandler.getWeb6();
     }
     public void initAssets(){
-        webup = new Sprite(new Texture("webup.png"));
-        webdown = new Sprite(new Texture("webdown.png"));
+        webup = new Sprite(new Texture("texture/webup.png"));
+        webdown = new Sprite(new Texture("texture/webdown.png"));
         grass = new Sprite(new Texture("grass.png"));
         webup.flip(false ,true);
         webdown.flip(false , true);

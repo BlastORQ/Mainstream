@@ -4,7 +4,9 @@ import android.os.Bundle;
 
 import com.badlogic.gdx.backends.android.AndroidApplication;
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
-import ua.pp.blastorq.Mainstream;
+
+import ua.pp.blastorq.mainstream.Mainstream;
+
 
 public class AndroidLauncher extends AndroidApplication {
 	@Override

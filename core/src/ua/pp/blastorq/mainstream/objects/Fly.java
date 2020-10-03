@@ -17,8 +17,9 @@ public class Fly {
     float screenWidth = Gdx.graphics.getWidth();
     float screenHeight = Gdx.graphics.getHeight();
     float gameHeight = 136;
-    public Fly(float x, float y, float width, float height) {
+    private float GROUND_LIMIT = 50;
 
+    public Fly(float x, float y, float width, float height) {
         this.width = width;
         this.height = height;
         position = new Vector2(x ,y);
@@ -41,8 +42,8 @@ public class Fly {
     }
     public void update(float delta){
         velosity.add(acceleration.cpy().scl(delta/2));
-        if(velosity.y >50){
-            velosity.y = 50;
+        if(velosity.y >GROUND_LIMIT){
+            velosity.y = GROUND_LIMIT;
         }
         if(position.y > gameHeight-24){
             position.y = gameHeight-24;
@@ -74,5 +75,9 @@ public class Fly {
 
     public boolean isAlive() {
         return isAlive;
+    }
+
+    public void setGROUND_LIMIT(float GROUND_LIMIT) {
+        this.GROUND_LIMIT = GROUND_LIMIT;
     }
 }

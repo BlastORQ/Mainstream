@@ -4,7 +4,10 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.World;
 
+import aurelienribon.bodyeditor.BodyEditorLoader;
 import ua.pp.blastorq.mainstream.game.GameRender;
 import ua.pp.blastorq.mainstream.game.GameWorld;
 import ua.pp.blastorq.mainstream.ui.InputHandler;
@@ -18,7 +21,6 @@ public class GameScreen implements Screen {
     float screenWidth = Gdx.graphics.getWidth();
     float screenHeight = Gdx.graphics.getHeight();
     float gameHeight = 136;
-
     public float getGameWidth() {
         return gameWidth;
     }
@@ -26,8 +28,8 @@ public class GameScreen implements Screen {
     public float gameWidth = screenWidth / (screenHeight / gameHeight);
     int midPointX = (int)gameWidth /2;
     int midPointY = (int) gameHeight /2;
-    public GameScreen() {
 
+    public GameScreen() {
         world = new GameWorld(midPointX ,midPointY);
         renderer = new GameRender(world ,gameWidth);
         Gdx.input.setInputProcessor(new InputHandler(world));
@@ -41,7 +43,7 @@ public class GameScreen implements Screen {
 
     @Override
     public void render(float delta) {
-    world.update(delta);
+        world.update(delta);
         renderer.render(delta);
 
     }
